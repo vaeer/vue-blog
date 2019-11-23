@@ -1,15 +1,15 @@
-import Vue from "vue";
-import Router from "vue-router";
+import Vue from 'vue';
+import Router from 'vue-router';
 
 Vue.use(Router);
 
 const router = new Router({
-  mode: "history",
+  mode: 'history',
   routes: [
     {
-      path: "/",
-      name: "layout",
-      component: resolve => require(["@/layout/Layout"], resolve)
+      path: '/',
+      name: 'home',
+      component: resolve => require(['@/App.vue'], resolve)
     }
   ]
 });

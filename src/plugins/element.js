@@ -1,5 +1,5 @@
-import Vue from "vue";
-import { Button } from "element-ui";
-import "@/assets/element-variables.scss";
+import Vue from 'vue';
+import ElementUI from 'element-ui';
+import '../../theme/index.css';
 
-Vue.use(Button);
+Vue.use(ElementUI);
