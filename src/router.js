@@ -7,9 +7,9 @@ const router = new Router({
   mode: "history",
   routes: [
     {
-      path: "/aa",
-      name: "home",
-      component: resolve => require(["@/components/HelloWorld"], resolve)
+      path: "/",
+      name: "layout",
+      component: resolve => require(["@/layout/Layout"], resolve)
     }
   ]
 });
