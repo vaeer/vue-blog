@@ -1,10 +1,10 @@
 <template>
-  <div class="article-container">
+  <div class="article-container" @click='onClick'>
     <div class="article-title">
       {{title}}
     </div>
     <div class="article-content">
-      {{article}}
+      {{content}}
     </div>
     <div class="article-footer">
       {{date}}
@@ -17,8 +17,9 @@ export default {
   name: 'ArticleItem',
   props: {
     title: String,
-    article: String,
-    date: String
+    content: String,
+    date: String,
+    onClick: Function
   }
 }
 </script>
@@ -31,8 +32,12 @@ export default {
   color: #222;
   max-width: 600px;
   height: 300px;
-  padding: 20px 10px;
+  padding: 20px;
   margin: 0 auto;
+  border-radius: 4px;
+  &:hover {
+    box-shadow: 0 0 5px #888888;
+  }
   .article-title {
     flex: 0 0 60px;
     font-size: 40px;
@@ -54,7 +59,7 @@ export default {
     content: '';
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -10px;
     width: 100%;
     height: 1px;
     background-color: #999;
