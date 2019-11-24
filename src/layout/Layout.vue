@@ -1,9 +1,9 @@
 <template>
     <el-container>
         <el-aside width="200px">
-            <Sider />
+            <sider />
         </el-aside>
-        <el-container>
+        <el-container class="content">
             <el-main>
                 <router-view />
             </el-main>
@@ -21,9 +21,12 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style scope lang="less">
 .el-aside {
   position: fixed;
   width: 20% !important;
+}
+.content {
+  margin-left: 20%;
 }
 </style>

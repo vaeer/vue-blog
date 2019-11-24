@@ -2,7 +2,7 @@
   <div class="sider">
     <div class="content">
       <div class="avatar">
-        <router-link to="/" class="link">{{avatar}}VAER</router-link>
+        <router-link to="/index" class="link">{{avatar}}VAER</router-link>
       </div>
       <div class="list">
           <div class="selector">——</div>

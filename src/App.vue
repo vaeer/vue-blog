@@ -7,7 +7,7 @@
 <script>
 import Layout from '@/layout/Layout';
 export default {
-  name: "app",
+  name: 'app',
   components: {
       Layout
   }
