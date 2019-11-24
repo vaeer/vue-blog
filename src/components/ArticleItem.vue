@@ -1,27 +1,27 @@
 <template>
-  <div class="article-container" @click='onClick'>
+  <div class="article-container" @click="onClick">
     <div class="article-title">
-      {{title}}
+      {{ title }}
     </div>
     <div class="article-content">
-      {{content}}
+      {{ content }}
     </div>
     <div class="article-footer">
-      {{date}}
+      {{ date }}
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ArticleItem',
+  name: "ArticleItem",
   props: {
     title: String,
     content: String,
     date: String,
     onClick: Function
   }
-}
+};
 </script>
 
 <style scope lang="less">
@@ -34,9 +34,26 @@ export default {
   height: 300px;
   padding: 20px;
   margin: 0 auto;
-  border-radius: 4px;
+  border-radius: 5px;
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   &:hover {
-    box-shadow: 0 0 5px #888888;
+    transform: scale(1.1, 1.1);
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    &:hover {
+      opacity: 1;
+    }
   }
   .article-title {
     flex: 0 0 60px;
@@ -59,12 +76,11 @@ export default {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -10px;
+    bottom: 0;
     width: 100%;
     height: 1px;
     background-color: #999;
     transform: scaleY(.5);
   }
 }
-
 </style>

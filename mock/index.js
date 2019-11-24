@@ -1,6 +1,6 @@
 const proxy = {
-  'GET /mock/article': require('./article'),
-  'GET /mock/articleList': require('./articleList')
+  'POST /mock/getArticle': require('./article'),
+  'POST /mock/getArticleList': require('./articleList')
 }
 
 module.exports = proxy;

@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
+    "build": "cross-env production vue-cli-service build",
+    "lint": "cross-env development vue-cli-service lint",
     "dev": "vue-cli-service serve"
   },
   "dependencies": {
@@ -22,6 +22,7 @@
     "@vue/eslint-config-prettier": "^5.0.0",
     "babel-eslint": "^10.0.3",
     "babel-plugin-component": "^1.1.1",
+    "cross-env": "^6.0.3",
     "element-theme-chalk": "^2.12.0",
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.1",
@@ -35,20 +36,6 @@
     "sass-loader": "^8.0.0",
     "vue-cli-plugin-element": "^1.0.1",
     "vue-template-compiler": "^2.6.10"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
   },
   "postcss": {
     "plugins": {

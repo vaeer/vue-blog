@@ -1,13 +1,23 @@
 import axios from 'axios';
 const env = process.env.NODE_ENV;
-
-axios.create({
-  baseURL: env === 'dev' ? '/mock' : '',
+const baseURL = env === 'development' ? '/mock' : '';
+const client = axios.create({
+  baseURL,
   timeout: 10000
 });
 
-return new Promise(resolve => {
-  resolve()
-}).catch(err => {
-
-})
+export default async (url, options) => {
+  try {
+    let result = await client({
+      ...options,
+      url
+    });
+    return result.data;
+  } catch (err) {
+    if (err.response) {
+      Promise.reject(err.response.data);
+    } else {
+      Promise.reject(err.message);
+    }
+  }
+}
