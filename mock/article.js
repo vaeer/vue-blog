@@ -5,7 +5,7 @@ module.exports = {
   result: {
     title: Random.cword(5, 10),
     content: Random.cparagraph(5,8),
-    date: Random.datetime('yyyy-MM-dd A HH:mm')
+    date: Random.datetime('yyyy-MM-dd HH:mm')
   },
   errMsg: ''
 }

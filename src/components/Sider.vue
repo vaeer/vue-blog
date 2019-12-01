@@ -2,18 +2,12 @@
   <div class="sider">
     <div class="content">
       <div class="avatar">
-        <router-link to="/index" class="link">{{avatar}}VAER</router-link>
+        <router-link to="/article" class="link">VAER</router-link>
       </div>
       <div class="list">
           <div class="selector">——</div>
-          <div class="selector">
-            <router-link to="/article" class="link">文章</router-link>
-          </div>
-          <div class="selector">
-            <router-link to="/star" class="link">精选</router-link>
-          </div>
-          <div class="selector">
-            <router-link to="/about" class="link">关于</router-link>
+          <div class="selector" v-for='(item, index) of nav' :key='index'>
+            <router-link :to='item.path' class="link">{{item.name}}</router-link>
           </div>
           <div class="selector">——</div>
       </div>
@@ -25,12 +19,18 @@
 </template>
 
 <script>
+import nav from '@/config/nav';
 export default {
-  name: 'Sider'
+  name: 'sider',
+  data() {
+    return {
+      nav
+    }
+  },
 };
 </script>
 
-<style scope lang="less">
+<style scoped lang="less">
 .sider {
   height: 100vh;
   background: #444;
@@ -61,6 +61,7 @@ export default {
       margin: auto 0;
       .selector {
         .link {
+          font-size: 18px;
           text-decoration: none;
           color: #fff;
           &:hover {

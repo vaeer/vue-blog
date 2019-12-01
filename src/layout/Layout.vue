@@ -12,16 +12,16 @@
 </template>
 
 <script>
-import Sider from '@/components/Sider';
+import sider from '@/components/sider';
 export default {
     name: 'layout',
     components: {
-        Sider
+        sider
     }
 }
 </script>
 
-<style scope lang="less">
+<style lang="less">
 .el-aside {
   position: fixed;
   width: 20% !important;

@@ -3,7 +3,7 @@
     <div class="article-title">
       {{ title }}
     </div>
-    <div class="article-content">
+    <div class="article-content" @click="onClick">
       {{ content }}
     </div>
     <div class="article-footer">
@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: "ArticleItem",
+  name: "article-item",
   props: {
     title: String,
     content: String,
@@ -24,7 +24,7 @@ export default {
 };
 </script>
 
-<style scope lang="less">
+<style scoped lang="less">
 .article-container {
   position: relative;
   display: flex;
@@ -37,7 +37,7 @@ export default {
   border-radius: 5px;
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   &:hover {
-    transform: scale(1.1, 1.1);
+    transform: scale(1.05, 1.05);
   }
   &::before {
     content: '';
@@ -54,17 +54,20 @@ export default {
     &:hover {
       opacity: 1;
     }
+
   }
   .article-title {
     flex: 0 0 60px;
     font-size: 40px;
     font-weight: 500px;
+    cursor: pointer;
   }
   .article-content {
     flex: 1;
     font-size: 16px;
     word-break: break-word;
     color: #666;
+    cursor: pointer;
   }
   .article-footer {
     flex: 0 0 30px;

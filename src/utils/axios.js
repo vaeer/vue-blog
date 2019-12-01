@@ -17,7 +17,7 @@ export default async (url, options) => {
     if (err.response) {
       Promise.reject(err.response.data);
     } else {
-      Promise.reject(err.message);
+      Promise.reject(err);
     }
   }
 }

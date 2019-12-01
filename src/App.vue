@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <Layout />
+    <layout />
   </div>
 </template>
 
 <script>
-import Layout from '@/layout/Layout';
+import layout from '@/layout/layout';
 export default {
   name: 'app',
   components: {
-      Layout
+      layout
   }
 };
 </script>
@@ -24,6 +24,7 @@ html, body {
     height: 100%;
     width: 100%;
     font-family: "SF Pro SC","SF Pro Text","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
-    color: #f5f5f7;
+    color: #444;
+    background-color: #f4f5f5;
 }
 </style>

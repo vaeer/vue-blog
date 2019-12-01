@@ -20,14 +20,22 @@ const router = new Router({
     // },
     {
       path: '/article',
-      component: resolve => require(['@/routes/Article.vue'], resolve),
+      component: resolve => require(['@/routes/article.vue'], resolve),
       meta: {
         title: '文章'
       }
     },
     {
+      path: '/article/:date/:title',
+      component:resolve => require(['@/routes/detail.vue'], resolve),
+      props: true,
+      meta: {
+        title: '文章详情'
+      }
+    },
+    {
       path: '/star',
-      component: resolve => require(['@/routes/Article.vue'], resolve),
+      component: resolve => require(['@/routes/article.vue'], resolve),
       meta: {
         title: '文章'
       }
