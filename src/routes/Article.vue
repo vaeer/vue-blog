@@ -8,32 +8,39 @@
       :date='item.date'
       :onClick='goDetail.bind(this, item)'
     />
+    <el-pagination
+      layout="prev, pager, next"
+      :total="50"
+    />
   </div>
 </template>
 
 <script>
-import { getArticleList } from '../services/article';
+import { mapState, mapActions } from 'vuex';
 import articleItem from '@/components/article-item.vue';
 import moment from 'moment';
 export default {
-  name: 'Article',
+  name: 'article-list',
   components: {
     'article-item': articleItem
   },
   data() {
     return {
-      articleList: []
+      pageSize: 10,
+      pageNum: 1,
+      total: 0
     };
   },
   mounted () {
-    getArticleList({}).then(res => {
-      this.articleList = res.result;
-    });
+    this.$store.dispatch('getArticleList', {});
   },
-  computed: {
-    
-  },
+  computed: mapState({
+    articleList: state => state.articles.articleList
+  }),
   methods: {
+    ...mapActions([
+      'getArticleList'
+    ]),
     goDetail(item) {
       const date = moment(item.date).format('YYYYMMDD');
       const title = item.title;

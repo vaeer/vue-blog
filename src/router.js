@@ -22,7 +22,7 @@ const router = new Router({
       path: '/article',
       component: resolve => require(['@/routes/article.vue'], resolve),
       meta: {
-        title: '文章'
+        title: 'Vaer\'s Blog'
       }
     },
     {
@@ -30,17 +30,24 @@ const router = new Router({
       component:resolve => require(['@/routes/detail.vue'], resolve),
       props: true,
       meta: {
-        title: '文章详情'
+        title: '文章'
       }
     },
     {
       path: '/star',
       component: resolve => require(['@/routes/article.vue'], resolve),
       meta: {
-        title: '文章'
+        title: '精选'
       }
     }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
+  next()
+})
 
 export default router;

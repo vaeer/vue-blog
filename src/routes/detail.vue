@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
 import articleDetail from '@/components/article-detail.vue';
 import articleLabel from '@/components/article-label';
 import { getArticle } from '../services/article';
@@ -25,7 +26,7 @@ export default {
   },
   data() {
     return {
-      article: {}
+      
     };
   },
   mounted() {
@@ -33,9 +34,15 @@ export default {
       title: this.title,
       date: this.date
     };
-    getArticle(params).then(res => {
-      this.article = res.result;
-    });
+    this.$store.dispatch('getArticle', params);
+  },
+  computed: mapState({
+    article: state => state.articles.article
+  }),
+  methods: {
+    ...mapActions([
+      'getArticle'
+    ])
   }
 }
 </script>
