@@ -31,6 +31,7 @@ export default {
   },
   methods: {
     selectLabel() {
+      // 跳转
       console.log('.....');
     }
   }
@@ -39,12 +40,10 @@ export default {
 
 <style lang="less" scoped>
 .article-label {
-  width: 25%;
   padding: 20px;
   margin-left: 20px;
   border-radius: 6px;
   background-color: #fff;
-  min-height: 100vh;
   .label-container {
     margin-top: 20px;
     color: #fff;

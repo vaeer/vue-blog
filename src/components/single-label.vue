@@ -1,5 +1,5 @@
 <template>
-  <div :style="{backgroundColor: color}" class="single-label">
+  <div @click="onClick" :style="{backgroundColor: color}" class="single-label">
     <span class="label-title">{{ content.title }}</span>
     <span class="label-number">({{ content.number }})</span>
   </div>

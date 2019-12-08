@@ -4,9 +4,11 @@
       :title='article.title'
       :content='article.content'
       :date='article.date'
+      class="article-detail"
     />
     <article-label
       :labels='labelList'
+      class="article-label"
     />
   </div>
 </template>
@@ -53,5 +55,11 @@ export default {
 <style scoped lang="less">
   .article-container {
     display: flex;
+    .article-detail {
+      width: 75%;
+    }
+    .article-label {
+      width: 25%;
+    }
   }
 </style>
