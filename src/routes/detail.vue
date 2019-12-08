@@ -5,7 +5,9 @@
       :content='article.content'
       :date='article.date'
     />
-    <article-label />
+    <article-label
+      :labels='labelList'
+    />
   </div>
 </template>
 
@@ -37,7 +39,8 @@ export default {
     this.$store.dispatch('getArticle', params);
   },
   computed: mapState({
-    article: state => state.articles.article
+    article: state => state.articles.article,
+    labelList: state => state.labels.labelList
   }),
   methods: {
     ...mapActions([

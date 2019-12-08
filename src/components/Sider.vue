@@ -6,7 +6,7 @@
       </div>
       <div class="list">
           <div class="selector">——</div>
-          <div class="selector" v-for='(item, index) of nav' :key='index'>
+          <div class="selector" v-for='item of nav' :key='item.key'>
             <router-link :to='item.path' class="link">{{item.name}}</router-link>
           </div>
           <div class="selector">——</div>

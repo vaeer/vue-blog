@@ -33,13 +33,16 @@ export default {
   },
   mounted () {
     this.$store.dispatch('getArticleList', {});
+    this.$store.dispatch('getLabelList', {});
   },
   computed: mapState({
-    articleList: state => state.articles.articleList
+    articleList: state => state.articles.articleList,
+    labelList: state => state.labels.labelList
   }),
   methods: {
     ...mapActions([
-      'getArticleList'
+      'getArticleList',
+      'getLabelList'
     ]),
     goDetail(item) {
       const date = moment(item.date).format('YYYYMMDD');
