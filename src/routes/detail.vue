@@ -4,8 +4,12 @@
       :title='article.title'
       :content='article.content'
       :date='article.date'
+      class="article-detail"
     />
-    <article-label />
+    <article-label
+      :labels='labelList'
+      class="article-label"
+    />
   </div>
 </template>
 
@@ -37,7 +41,8 @@ export default {
     this.$store.dispatch('getArticle', params);
   },
   computed: mapState({
-    article: state => state.articles.article
+    article: state => state.articles.article,
+    labelList: state => state.labels.labelList
   }),
   methods: {
     ...mapActions([
@@ -50,5 +55,11 @@ export default {
 <style scoped lang="less">
   .article-container {
     display: flex;
+    .article-detail {
+      width: 75%;
+    }
+    .article-label {
+      width: 25%;
+    }
   }
 </style>

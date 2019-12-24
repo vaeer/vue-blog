@@ -28,7 +28,6 @@ export default {
 
 <style scoped lang="less">
 .article-detail {
-  width: 75%;
   padding: 40px 20px;
   border-radius: 4px;
   background-color: #fff;

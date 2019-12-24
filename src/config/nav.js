@@ -1,12 +1,15 @@
 export default [
   {
     name: '文章',
-    path: '/article'
+    path: '/article',
+    key: '/article'
   }, {
     name: '精选',
-    path: '/star'
+    path: '/star',
+    key: '/star'
   }, {
     name: '关于',
-    path: '/about'
+    path: '/about',
+    key: '/about'
   }
 ]

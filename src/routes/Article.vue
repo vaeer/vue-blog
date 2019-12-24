@@ -1,28 +1,38 @@
 <template>
-  <div>
-    <article-item
-      v-for='(item, index) of articleList'
-      :key='index'
-      :title='item.title'
-      :content='item.content'
-      :date='item.date'
-      :onClick='goDetail.bind(this, item)'
-    />
-    <el-pagination
-      layout="prev, pager, next"
-      :total="50"
-    />
+  <div class="article">
+    <div class="left">
+      <article-item
+        v-for='(item, index) of articleList'
+        :key='index'
+        :title='item.title'
+        :content='item.content'
+        :date='item.date'
+        :onClick='goDetail.bind(this, item)'
+      />
+      <el-pagination
+        layout="prev, pager, next"
+        :total="50"
+      />
+    </div>
+    <div class="right">
+      <article-label
+        :labels='labelList'
+        class="article-label"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import articleItem from '@/components/article-item.vue';
+import articleItem from '@/components/article-item';
+import articleLabel from '@/components/article-label';
 import moment from 'moment';
 export default {
   name: 'article-list',
   components: {
-    'article-item': articleItem
+    'article-item': articleItem,
+    'article-label': articleLabel
   },
   data() {
     return {
@@ -33,13 +43,16 @@ export default {
   },
   mounted () {
     this.$store.dispatch('getArticleList', {});
+    this.$store.dispatch('getLabelList', {});
   },
   computed: mapState({
-    articleList: state => state.articles.articleList
+    articleList: state => state.articles.articleList,
+    labelList: state => state.labels.labelList
   }),
   methods: {
     ...mapActions([
-      'getArticleList'
+      'getArticleList',
+      'getLabelList'
     ]),
     goDetail(item) {
       const date = moment(item.date).format('YYYYMMDD');
@@ -50,6 +63,15 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
+  .article {
+    display: flex;
+    .left {
+      width: 75%;
+    }
+    .right {
+      width: 25%;
+    }
+  }
 
 </style>

@@ -30,10 +30,11 @@ export default {
   display: flex;
   flex-direction: column;
   color: #222;
+  background-color: #fff;
   max-width: 600px;
   height: 300px;
   padding: 20px;
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
   border-radius: 5px;
   transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
   &:hover {
