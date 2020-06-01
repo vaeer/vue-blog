@@ -27,7 +27,7 @@ const router = new Router({
     },
     {
       path: '/article/:date/:title',
-      component:resolve => require(['@/routes/detail.vue'], resolve),
+      component: resolve => require(['@/routes/detail.vue'], resolve),
       props: true,
       meta: {
         title: '文章'
